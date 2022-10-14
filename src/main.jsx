@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Children } from 'react'
 import ReactDOM from 'react-dom/client'
 import {
   createBrowserRouter,
@@ -15,11 +15,11 @@ const router = createBrowserRouter([
   {
     path:'/',
     element: <Root />,
-    errorElement: <ErrorPage />
-  },
-  {
-    path:'contacts/:contactid',
-    element: <Contact />
+    errorElement: <ErrorPage />,
+    children:[{
+      path:'contacts/:contactid',
+      element: <Contact /> 
+    }]
   }
 ])
 
