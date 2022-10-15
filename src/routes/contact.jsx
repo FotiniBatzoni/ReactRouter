@@ -82,29 +82,13 @@ export default function Contact() {
   );
 }
 
-function Favorite({ contact }) {
-  // yes, this is a `let` for later
-  let favorite = contact.favorite;
-  return (
-    <Form method="post">
-      <button
-        name="favorite"
-        value={favorite ? "false" : "true"}
-        aria-label={
-          favorite
-            ? "Remove from favorites"
-            : "Add to favorites"
-        }
-      >
-        {favorite ? "★" : "☆"}
-      </button>
-    </Form>
-  );
-}
 
 function Favorite({ contact }) {
     const fetcher = useFetcher();
     let favorite = contact.favorite;
+    if (fetcher.formData) {
+        favorite = fetcher.formData.get("favorite") === "true";
+      }
   
     return (
       <fetcher.Form method="post">
@@ -122,3 +106,14 @@ function Favorite({ contact }) {
       </fetcher.Form>
     );
   }
+
+//   export async function loader({ params }) {
+//     const contact = await getContact(params.contactId);
+//     if (!contact) {
+//       throw new Response("", {
+//         status: 404,
+//         statusText: "Not Found",
+//       });
+//     }
+//     return contact;
+//   }
