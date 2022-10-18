@@ -24,10 +24,10 @@ const SignInForm = () =>{
     }
 
     
-    const signInWithGoogle = async () =>{
-        const {user} = await signInWithGooglePopup();
-        await createUserDocumentFromAuth(user)
-    }
+    // const signInWithGoogle = async () =>{
+    //     const {user} = await signInWithGooglePopup();
+    //     await createUserDocumentFromAuth(user)
+    // }
 
     const handleSubmit = async (event) =>{
          event.preventDeafult();
@@ -64,9 +64,6 @@ const SignInForm = () =>{
                 <div className="buttons-container">
                     <Button type="submit">
                         Sign In
-                    </Button>
-                    <Button type='button' buttonType='google' onClick = {signInWithGoogle}>
-                        Google Sign In
                     </Button>
                 </div>
 
