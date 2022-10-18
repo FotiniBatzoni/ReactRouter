@@ -11,6 +11,7 @@ import Contact, {loader as contactLoader, action as contactAction,} from './rout
 import EditContact,{action as editAction} from "./routes/edit";
 import { action as destroyAction } from "./routes/destroy";
 import Index from "./routes/index";
+import Authentication from './routes/authentication/authentication.component'
 
 
 import './index.css'
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       { 
         index: true, 
         element: <Index /> 
+      },
+      {
+        path:'auth',
+        element: <Authentication />,
       },
       {
       path:'contacts/:contactId',
